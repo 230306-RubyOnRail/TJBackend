@@ -11,4 +11,6 @@ class SessionsController < ApplicationController
       head :unauthorized
     end
   end
+
+  
 end
