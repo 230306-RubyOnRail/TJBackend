@@ -3,15 +3,22 @@ class ReimbusementsController < ApplicationController
     render json: {message: 'Hello'}
   end
 
+
+  
   def create
 
   end
 
-  def show
+  def view_one
+  end
+
+  def view_all
   end
 
   def update
   end
+
+  def update_status
 
   def delete
   end
