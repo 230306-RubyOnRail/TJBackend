@@ -6,7 +6,6 @@ class JsonWebToken
   end
 
   def self.decode(token)
-    puts "In decode"
     JWT.decode(token, '', false, {algorithm: 'HS256'})[0]
   rescue JWT::ExpiredSignature, JWT::ValidationError => e
     raise ExceptionHandler::ExpiredSignature, e.message

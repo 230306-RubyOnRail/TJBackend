@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'reimbursements', to: 'reimbursements#index'
   post 'reimbursements', to: 'reimbursements#create'
   get 'reimbursements/:id', to: 'reimbursements#show'
-  get 'reimbursements/all/:id', to: 'reimbursements#show_all'
+  #get 'reimbursements/all/:id', to: 'reimbursements#show_all'
   put 'reimbursements/:id', to: 'reimbursements#update'
   patch 'reimbursements/:id', to: 'reimbursements#update'
   delete 'reimbursements/:id', to: 'reimbursements#delete'
