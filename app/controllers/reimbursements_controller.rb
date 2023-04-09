@@ -6,22 +6,29 @@ class ReimbursementsController < ApplicationController
   end
 
   def create
-    #data = JSON.parse(request.body.read)
-    #@user = User.includes(:data['username']).where(user_id: current_user.id)
-    #puts "#{user}"
-    #if @current_user['manager']
-      #  User.create(username: '')
-    #  render json: {message: 'create'}, status: :created
-    #end
-    render json: {message: 'create'}
+   data = JSON.parse(request.body.read)
+   @user = User.where(username: data['username'])
+   if @user.empty? && @current_user['manager'] == true
+     User.create(username: data['username'], password_digest: data['password'], manager: data['manager'])
+     render json: {message: 'created'}, status: :created
+   else
+    render json: {message: 'did not make the new user'}, status: :bad_request
+   end
   end
 
   def show
-    render json: {message: 'show'}
-  end
-
-  def show_all
-    render json: {message: 'show_all'}
+    if @current_user['manager'] == true
+      @user = Reimbursement.select('id', 'title','description', 'approved')
+      render json: @user.as_json, status: :ok
+    else
+      @user = Reimbursement.select('id', 'title','description', 'approved').where(user_id: @current_user['id'])
+      if @user.empty?
+        render json: {message: 'none to display'}, status: :ok
+      else
+        render json: @user.as_json, status: :ok
+      end
+    end
+    render json: {message: 'unable to process request'}, status: :bad_request
   end
 
   def update
@@ -29,6 +36,19 @@ class ReimbursementsController < ApplicationController
   end
 
   def delete
-    render json: {message: 'delete'}
+    data = JSON.parse(request.body.read)
+    if @current_user['manager'] == true
+      Reimbursement.find(data['id']).delete
+      render json: {message: 'Delete Successful'}, Status: :ok
+    else
+      r = Reimbursement.select('id').where(user_id: @current_user['id'], id: data['id'])
+      if r.empty?
+        puts" I'm Empty!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        render json: {message: 'reimbursement not found!'}, status: :bad_request
+      else
+        Reimbursement.destroy(data['id'])
+        render json: {message: 'Delete Successful'}, status: :ok
+      end
+    end
   end
 end
