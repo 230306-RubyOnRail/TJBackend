@@ -39,7 +39,8 @@ class ReimbursementsController < ApplicationController
 
     if reimbursement.user_id == @current_user.id || @current_user['manager'] == true
       if reimbursement.update(JSON.parse(request.body.read))
-        render json: { message: 'Request updated' }, status: :ok
+        @user = Reimbursement.select('id', 'title','description', 'approved')
+        render json: @user.as_json, status: :ok
       else
         render json: {message: 'did not update the reimbursement'}, status: :bad_request
       end

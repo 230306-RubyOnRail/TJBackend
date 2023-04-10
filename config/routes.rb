@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'reimbursements/new', to: 'reimbursements#create'
   get 'reimbursements', to: 'reimbursements#show'
   #get 'reimbursements/all/:id', to: 'reimbursements#show_all'
-  put 'reimbursements', to: 'reimbursements#update'
+  put 'reimbursements/:id', to: 'reimbursements#update'
   #patch 'reimbursements/:id', to: 'reimbursements#update'
   delete 'reimbursements/:id', to: 'reimbursements#delete'
   #resources :reimbusements, path: '/reimbursements', only: %i[ index show update destroy ]
