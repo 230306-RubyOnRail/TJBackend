@@ -43,6 +43,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem 'bcrypt'
 
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem "rack-cors"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 gem "jwt", "~> 2.7"
