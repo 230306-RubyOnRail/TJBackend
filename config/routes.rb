@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #get 'reimbursements/all/:id', to: 'reimbursements#show_all'
   put 'reimbursements/:id', to: 'reimbursements#update'
   patch 'reimbursements/:id', to: 'reimbursements#update'
-  delete 'reimbursements', to: 'reimbursements#delete'
+  delete 'reimbursements/:id', to: 'reimbursements#delete'
   #resources :reimbusements, path: '/reimbursements', only: %i[ index show update destroy ]
   # Defines the root path route ("/")
   # root "articles#index"

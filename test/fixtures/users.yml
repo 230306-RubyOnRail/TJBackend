@@ -2,12 +2,12 @@
 
 one:
   id: 1
-  username: MyString
-  password: MyString
-  manager: false
+  username: bob
+  password_digest: gen
+  manager: true
 
 two:
-  id: 1
-  username: MyString
-  password: MyString
+  id: 2
+  username: ash
+  password_digest: ketchup
   manager: false
