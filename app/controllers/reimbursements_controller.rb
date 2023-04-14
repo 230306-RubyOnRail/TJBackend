@@ -65,7 +65,4 @@ class ReimbursementsController < ApplicationController
       end
     end
   end
-
-
-
 end

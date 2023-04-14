@@ -3,7 +3,6 @@ require_relative '../../lib/json_web_token'
 class UsersController < ApplicationController
     include Authenticatable
 
-  
     def create
      data = JSON.parse(request.body.read)
      @user = User.where(username: data['username'])
