@@ -25,7 +25,7 @@ development:
   <<: *default
   database: postgres
   username: postgres
-  password: secretpassword
+  password: simplepassword
   port: 5432
   host: project2.c595yq2e24rn.us-west-2.rds.amazonaws.com
   pool: 10
