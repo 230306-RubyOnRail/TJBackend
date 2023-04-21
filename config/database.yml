@@ -24,7 +24,7 @@ default: &default
 development:
   <<: *default
   database: postgres
-  username: postgres
+  username: ruby_app
   password: secretpassword
   port: 5432
   host: project2.c595yq2e24rn.us-west-2.rds.amazonaws.com

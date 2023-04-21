@@ -20,5 +20,7 @@ module Project1
     # config.eager_load_paths << Rails.root.join("extras")
     config.api_only = true
     config.autoloader = :zeitwerk
+    config.hosts << "ec2-13-52-249-162.us-west-1.compute.amazonaws.com"
+
   end
 end
