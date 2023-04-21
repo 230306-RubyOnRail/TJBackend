@@ -25,7 +25,7 @@ development:
   <<: *default
   database: postgres
   username: ruby_app
-  password: secretpassword
+  password: ruby_secret
   port: 5432
   host: project2.c595yq2e24rn.us-west-2.rds.amazonaws.com
   pool: 10
