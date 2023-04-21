@@ -24,10 +24,10 @@ default: &default
 development:
   <<: *default
   database: postgres
-  username: ruby_app
-  password: ruby_secret
+  username: postgres
+  password: secretpassword
   port: 5432
-  host: localhost
+  host: project2.cstclknwezqt.us-west-1.rds.amazonaws.com
   pool: 10
   timeout: 5000
 
